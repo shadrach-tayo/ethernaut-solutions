@@ -7,4 +7,7 @@ contract Contract {
   function plus() public {
     count += 1;
   }
+  function minus() public {
+    count -= 1;
+  }
 }
